@@ -6,10 +6,10 @@
 [ext_resource path="res://Assets/flock 2.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Trail.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Predator2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Predator3.gd" type="Script" id=7]
+[ext_resource path="res://Source/Predator3.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Range.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/PikPng.com_red-arrows-png_1055377.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/Leader.gd" type="Script" id=10]
+[ext_resource path="res://Source/Leader.gd" type="Script" id=10]
 
 [node name="Root" type="Node2D"]
 
