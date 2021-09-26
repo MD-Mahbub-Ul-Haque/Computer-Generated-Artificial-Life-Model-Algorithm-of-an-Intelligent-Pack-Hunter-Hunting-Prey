@@ -1,0 +1,5 @@
+[gd_scene format=2]
+
+[node name="TileMap" type="TileMap"]
+position = Vector2( -90.8717, -117.599 )
+format = 1

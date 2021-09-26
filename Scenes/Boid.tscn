@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Source/Boid.gd" type="Script" id=1]
+[ext_resource path="res://Assets/floc 3.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Trail.tscn" type="PackedScene" id=3]
+
+[node name="Boid" type="Node2D"]
+script = ExtResource( 1 )
+baseColor = Color( 0.00784314, 0.00392157, 0.745098, 1 )
+specialColor = Color( 0.92549, 0.976471, 0.0235294, 1 )
+trail = NodePath("Sprite/Trail")
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1, 1 )
+rotation = -1.5708
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 2 )
+
+[node name="Trail" parent="Sprite" instance=ExtResource( 3 )]
+points = PoolVector2Array( 15810, 4440 )
+width = 2.0
+sharp_limit = 1.0
+round_precision = 10
+pointDuration = 0.5
+maxPoints = 150

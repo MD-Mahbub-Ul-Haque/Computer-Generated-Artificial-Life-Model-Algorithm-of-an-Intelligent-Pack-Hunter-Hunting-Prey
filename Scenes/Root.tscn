@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Source/Predator.gd" type="Script" id=1]
+[ext_resource path="res://Source/Flock.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Boid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/flock 2.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Trail.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Predator2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Predator3.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Range.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/PikPng.com_red-arrows-png_1055377.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Leader.gd" type="Script" id=10]
+
+[node name="Root" type="Node2D"]
+
+[node name="Predator" type="Node2D" parent="."]
+position = Vector2( -1164.79, -640.493 )
+rotation = 1.96524
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+flock = NodePath("../Flock")
+leader = NodePath("../Leader")
+acceleration = 1000.0
+maxSpeed = 400.0
+minSpeed = 100.0
+
+[node name="Sprite" type="Sprite" parent="Predator"]
+modulate = Color( 1, 0.00784314, 0.00784314, 1 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 4 )
+
+[node name="Trail" parent="Predator" instance=ExtResource( 5 )]
+width = 2.0
+default_color = Color( 0.972549, 0.0196078, 0.152941, 1 )
+round_precision = 10
+pointDuration = 1.0
+maxPoints = 200
+
+[node name="Range" parent="Predator" instance=ExtResource( 8 )]
+
+[node name="Predator3" type="Node2D" parent="."]
+position = Vector2( -1245.45, 889.072 )
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+flock = NodePath("../Flock")
+leader = NodePath("../Leader")
+acceleration = 1000.0
+maxSpeed = 500.0
+minSpeed = 100.0
+visualRange = 500.0
+
+[node name="Sprite" type="Sprite" parent="Predator3"]
+modulate = Color( 1, 0.00784314, 0.00784314, 1 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 4 )
+
+[node name="Trail" parent="Predator3" instance=ExtResource( 5 )]
+width = 2.0
+default_color = Color( 0.972549, 0.0196078, 0.152941, 1 )
+round_precision = 10
+pointDuration = 1.0
+maxPoints = 200
+
+[node name="Range" parent="Predator3" instance=ExtResource( 8 )]
+
+[node name="Predator2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -1596.36, 286.633 )
+maxSpeed = 300.0
+
+[node name="Leader" type="Node2D" parent="."]
+position = Vector2( -1295.88, -74.2372 )
+rotation = 1.09258
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+flock = NodePath("../Flock")
+acceleration = 1000.0
+maxSpeed = 200.0
+minSpeed = 100.0
+
+[node name="Sprite" type="Sprite" parent="Leader"]
+modulate = Color( 1, 0.00784314, 0.00784314, 1 )
+position = Vector2( -0.529158, -0.132284 )
+rotation = -1.5708
+scale = Vector2( 0.149118, 0.150441 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Trail" parent="Leader" instance=ExtResource( 5 )]
+width = 2.0
+default_color = Color( 0.972549, 0.0196078, 0.152941, 1 )
+round_precision = 10
+pointDuration = 1.0
+maxPoints = 200
+
+[node name="Range" parent="Leader" instance=ExtResource( 8 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 3, 3 )
+
+[node name="Flock" type="Node2D" parent="." groups=[
+"Flock",
+]]
+rotation = 0.0967111
+script = ExtResource( 2 )
+boidScene = ExtResource( 3 )
+numberOfBoids = 100
+visualRange = 300.0
+separationDistance = 100.0
+predator = NodePath("../Predator")
+predator2 = NodePath("../Predator2")
+predator3 = NodePath("../Predator3")
+leader = NodePath("../Leader")
+predatorMinDist = 210.0
+maxNeighborsColor = 15
+cohesionWeight = 0.3
+separationWeight = 200.0
+bordersWeight = 200.0
+predatorWeight = 5000.0
