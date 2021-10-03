@@ -1,5 +1,8 @@
+You can watch How to download and import the project in the following youtube video.
 
-To run this project at first you need to download the Godot game engine. You can download it from the link below.
+Youtube video link : https://youtu.be/iz6gHZvQ5J8 
+
+To run this project at first you need to download the Godot game engine. You can download it from the link below. 
 
 Godot Download link :   https://godotengine.org/download/windows
 
